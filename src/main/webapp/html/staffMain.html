@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+
+</head>
+<body onload="seachAllStaff()">
+<form id="staffForm" method="post">
+
+    <input type="button" onclick="seachAllStaff()" value="查询"/>
+</form>
+<table id="stafftable">
+    <thead>
+    <tr>
+        <th id="staffID">员工ID</th>
+        <th id="staffName">员工姓名</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+    <tfoot></tfoot>
+</table>
+</body>
+<script type="text/javascript">
+    function seachAllStaff() {
+        $.post("../staff/selectStaffByWhere.dao", '', function (results) {
+            console.log(results);
+            alert(results)
+            var str = "";
+            $.each(results, function (i, staffVO) {
+                // console.log(staff);
+                str += `
+            <tr>
+                <td>${staffVO.staffID }</td>
+                    <td>${staffVO.staffName }</td>
+                    <td >sfs</td>
+             </tr>`;
+            });
+            $('#stafftable tbody').html(str)
+        }, "json");
+    }
+</script>
+</html>
