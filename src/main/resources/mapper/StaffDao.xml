@@ -10,6 +10,8 @@
         <result column="STAFF_PWD" property="staffPWD" javaType="String" jdbcType="VARCHAR"/>
         <result column="EMAIL" property="email" javaType="String" jdbcType="VARCHAR"/>
         <result column="PHONE" property="phone" javaType="String" jdbcType="VARCHAR"/>
+        <result column="LOGIN_ID" property="loginID" javaType="String" jdbcType="VARCHAR"/>
+        <result column="NICKNAME" property="nickname" javaType="String" jdbcType="VARCHAR"/>
     </resultMap>
     
     <select id="selectStaffByWhere" parameterType="StaffDomain" resultMap="staffDomain">
@@ -22,5 +24,8 @@
                 and STAFF_NAME=#{staffName}
             </if>
         </where>
+    </select>
+    <select id="loginByStaff" parameterType="StaffDomain" resultMap="staffDomain">
+        select * from STAFF  WHERE STAFF_PWD=#{staffPWD} AND (LOGIN_ID=#{loginID} OR EMAIL=#{email})
     </select>
 </mapper>

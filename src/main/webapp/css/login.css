@@ -1,0 +1,41 @@
+.login-space{
+    width: 350px;
+    height: 360px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8%;
+
+}
+.loginMainClass{
+    height:35rem;
+    margin-left: 5px;
+    margin-right: 5px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: url(../images/login-man.jpg) no-repeat 10px center;
+    background-size: 100% 100%;
+
+}
+.login-input{
+    margin-bottom: 40px;
+    width: 80%;
+    padding-left: 10px;
+    height: 40px;
+
+}
+form{
+    width: 90%;
+}
+.login-button{
+    margin: 0;
+    border: 0;
+    width: 95%;
+    background: red;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+}
+

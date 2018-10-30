@@ -22,6 +22,11 @@ public class StaffServiceImpl implements StaffService {
         return toStaffVOList(staffDao.selectStaffByWhere(toStaffDomain(staffVO)));
     }
 
+    @Override
+    public List<StaffVO> loginByStaff(StaffVO staffVO) {
+        return toStaffVOList(staffDao.loginByStaff(toStaffDomain(staffVO)));
+    }
+
     public StaffDomain toStaffDomain(StaffVO staffVO){
         StaffDomain staffDomain = new StaffDomain();
         if (staffVO.getStaffID()!=null && !staffVO.getStaffID().equals("")){
@@ -33,6 +38,9 @@ public class StaffServiceImpl implements StaffService {
         }
         staffDomain.setEmail(staffVO.getEmail());
         staffDomain.setPhone(staffVO.getPhone());
+        staffDomain.setStaffPWD(staffVO.getStaffPWD());
+        staffDomain.setNickname(staffVO.getNickname());
+        staffDomain.setLoginID(staffVO.getLoginID());
         return staffDomain;
     }
 
@@ -43,6 +51,9 @@ public class StaffServiceImpl implements StaffService {
         staffVO.setStaffORG(String.valueOf(staffDomain.getStaffORG()));
         staffVO.setEmail(staffDomain.getEmail());
         staffVO.setPhone(staffDomain.getPhone());
+        staffVO.setStaffPWD(staffDomain.getStaffPWD());
+        staffVO.setLoginID(staffDomain.getLoginID());
+        staffVO.setNickname(staffDomain.getNickname());
         return staffVO;
     }
 

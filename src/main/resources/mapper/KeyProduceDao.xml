@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lzp.dao.KeyProduceDao">
+    <resultMap id="keyProduceDomain" type="com.lzp.domain.KeyProduceDomain">
+        <id column="KEY" property="key" javaType="int" jdbcType="INTEGER"/>
+        <result column="TABLE_ID_NAME" property="tableIdName" javaType="String" jdbcType="VARCHAR"/>
+        <result column="TABLE_NAME" property="tableName" javaType="String" jdbcType="VARCHAR"/>
+        <result column="VALUE" property="value" javaType="int" jdbcType="INTEGER"/>
+        <result column="COMMENTS" property="comments" javaType="String" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="findNowMaxID" parameterType="KeyProduceDomain" resultMap="keyProduceDomain">
+        SELECT * FROM KEY_PRODUCE WHERE KEY=#{key}
+    </select>
+    <update id="updateTableKey" parameterType="KeyProduceDomain">
+      update KEY_PRODUCE SET VALUE =#{value}
+    </update>
+
+</mapper>

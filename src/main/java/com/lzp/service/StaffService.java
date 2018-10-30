@@ -9,4 +9,5 @@ import java.util.List;
 @Service
 public interface StaffService {
     List<StaffVO> selectStaffByWhere(StaffVO staffVO);
+    List<StaffVO> loginByStaff(StaffVO staffVO);
 }

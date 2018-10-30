@@ -25,6 +25,31 @@ public class StaffDomain {
      * 电话
      */
     private String phone;
+    /**
+     * 昵称
+     */
+    private  String nickname;
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getLoginID() {
+        return loginID;
+    }
+
+    public void setLoginID(String loginID) {
+        this.loginID = loginID;
+    }
+
+    /**
+     * 登录名
+     */
+    private String loginID;
 
     public String getStaffName() {
         return staffName;

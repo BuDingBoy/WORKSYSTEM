@@ -25,6 +25,30 @@ public class StaffVO {
      * 电话
      */
     private String phone;
+    /**
+     * 昵称
+     */
+    private  String nickname;
+    /**
+     * 登录名
+     */
+    private String loginID;
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getLoginID() {
+        return loginID;
+    }
+
+    public void setLoginID(String loginID) {
+        this.loginID = loginID;
+    }
 
     public String getStaffID() {
         return staffID;

@@ -1,14 +1,30 @@
 package com.lzp.domain;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class WorkRecordDomain {
     private int recordID;
     private int staffID;
     private Date recordDate;
-    private String completed;
+    private String content;
     private String noCompleted;
-    private String comments;
+    private String title;
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public int getRecordID() {
         return recordID;
@@ -34,13 +50,7 @@ public class WorkRecordDomain {
         this.recordDate = recordDate;
     }
 
-    public String getCompleted() {
-        return completed;
-    }
 
-    public void setCompleted(String completed) {
-        this.completed = completed;
-    }
 
     public String getNoCompleted() {
         return noCompleted;
@@ -50,11 +60,5 @@ public class WorkRecordDomain {
         this.noCompleted = noCompleted;
     }
 
-    public String getComments() {
-        return comments;
-    }
 
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
 }

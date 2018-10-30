@@ -8,4 +8,5 @@ import java.util.List;
 @Repository
 public interface StaffDao {
     public List<StaffDomain> selectStaffByWhere(StaffDomain staffDomain);
+    public List<StaffDomain> loginByStaff(StaffDomain staffDomain);
 }

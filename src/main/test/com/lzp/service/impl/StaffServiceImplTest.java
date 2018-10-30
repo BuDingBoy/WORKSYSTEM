@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)     //表示继承了SpringJUnit4ClassRunner类
 @ContextConfiguration(locations = {"classpath:spring-mybatis.xml", "classpath:springMVC.xml"})
@@ -34,24 +34,42 @@ public class StaffServiceImplTest {
         }
     }
     @Test
+    public void login(){
+        StaffVO staffVO = new StaffVO();
+        staffVO.setStaffID("1");
+        staffVO.setStaffPWD("123");
+        List<StaffVO> staffVOS=staffService.loginByStaff(staffVO);
+        System.out.println(staffVOS.size());
+    }
+    @Test
     public void findWorkRecordByWhere(){
-//        List<WorkRecordDomain> workRecordDomains = workRecordDao.findWorkReportByWhere(new WorkRecordDomain());
-//        System.out.println(workRecordDomains.size());
-//        for (WorkRecordDomain workrecord: workRecordDomains) {
-//            System.out.println(workrecord.getRecordID());
-//            System.out.println(workrecord.getRecordDate());
-//            System.out.println(ConvertBuilder.dateToString(workrecord.getRecordDate()));
-//        }
-
         List<WorkRecordVO> workRecordVOList = workRecordService.findWorkReportByWhere(new WorkRecordVO());
 
         for(WorkRecordVO workRecordVO: workRecordVOList){
             System.out.println(workRecordVO.getRecordDate());
+            System.out.println(workRecordVO.getRecordID());
         }
     }
     @Test
     public void testdateconvert(){
-        Date date =ConvertBuilder.stringToDate("2018-10-09 23:37:17");
+        Date dates = new Date();
+        System.out.println(ConvertBuilder.dateToString(dates));
+        Date date =ConvertBuilder.stringToDate("2018-10-12 22:22:22");
         System.out.println(date);
     }
+    @Test
+    public void insertWorkrecord(){
+        WorkRecordVO workRecordVO = new WorkRecordVO();
+        workRecordVO.setStaffID("1");
+        workRecordVO.setRecordID("1009");
+        workRecordVO.setContent("已完成");
+        workRecordVO.setNoCompleted("d");
+        workRecordVO.setTitle("sd");
+        workRecordVO.setRecordDate("2018-10-12 22:22:22");
+        workRecordService.insertWrokRecord(workRecordVO);
+//        workRecordService.findWorkReportByWhere(workRecordVO);
+        findWorkRecordByWhere();
+    }
+
+
 }

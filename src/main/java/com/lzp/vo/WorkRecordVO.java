@@ -6,9 +6,37 @@ public class WorkRecordVO {
     private String recordID;
     private String staffID;
     private String recordDate;
-    private String completed;
+    private String content;
     private String noCompleted;
-    private String comments;
+    private String title;
+
+    public WorkRecordVO() {
+    }
+
+    public WorkRecordVO(String recordID, String staffID, String recordDate, String content, String noCompleted, String title) {
+        this.recordID = recordID;
+        this.staffID = staffID;
+        this.recordDate = recordDate;
+        this.content = content;
+        this.noCompleted = noCompleted;
+        this.title = title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public String getRecordID() {
         return recordID;
@@ -34,13 +62,7 @@ public class WorkRecordVO {
         this.recordDate = recordDate;
     }
 
-    public String getCompleted() {
-        return completed;
-    }
 
-    public void setCompleted(String completed) {
-        this.completed = completed;
-    }
 
     public String getNoCompleted() {
         return noCompleted;
@@ -50,11 +72,4 @@ public class WorkRecordVO {
         this.noCompleted = noCompleted;
     }
 
-    public String getComments() {
-        return comments;
-    }
-
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
 }

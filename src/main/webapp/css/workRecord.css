@@ -1,0 +1,65 @@
+
+.completedText{
+    height: 100px;
+    width:  90%;
+}
+.noCompletedText{
+    height: 100px;
+    width:  90%;
+}
+.commentsText{
+    height: 50px;
+    width:  60%;
+}
+.modalForm{
+    display: flex;
+    justify-content: center;
+}
+#modalWorkRecord{
+    width: 90%;
+    justify-content: center;
+}
+#modalWorkRecord th{
+    width: 10%;
+}
+
+body #showWorkRecord{
+    background: white;
+
+}
+
+.file-div{
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.file-title{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: white;
+}
+#recordTitle{
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 16px;
+    border: none;
+    background-color: #efefef;
+    color: #4f4f4f;
+    margin: 0;
+}
+
+.write-recordContent{
+    margin-top: 20px;
+    height: 50rem;
+    width: 100%;
+    padding: 10px 20px;
+}
+.write-save-div{
+    display: flex;
+    justify-content: flex-end;
+}

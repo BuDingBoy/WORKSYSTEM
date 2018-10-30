@@ -8,4 +8,7 @@ import java.util.List;
 public interface WorkRecordService {
 
     List<WorkRecordVO> findWorkReportByWhere(WorkRecordVO workRecordVO);
+    boolean insertWrokRecord(WorkRecordVO workRecordVO);
+    boolean updateWorkRecordByKey(WorkRecordVO workRecordVO);
+    boolean deleteWorkRecordByKey(WorkRecordVO workRecordVO);
 }

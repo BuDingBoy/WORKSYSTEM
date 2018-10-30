@@ -1,6 +1,6 @@
 package com.lzp.util;
 
-import java.sql.Date;
+import java.util.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,10 +14,9 @@ public class ConvertBuilder {
      */
     static public Date stringToDate(String stringDate){
         SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
-        java.sql.Date sresultDate = null;
+        Date sresultDate = null;
         try {
-            java.util.Date date3 = sdf2.parse(stringDate);
-            sresultDate = new java.sql.Date(date3.getTime());
+            sresultDate = sdf2.parse(stringDate);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -30,7 +29,7 @@ public class ConvertBuilder {
      * @return
      */
     static public String dateToString(Date date){
-        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String strDate = format.format(date);
         return strDate;
 
