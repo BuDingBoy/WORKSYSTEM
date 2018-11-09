@@ -1,18 +1,21 @@
 package com.lzp.domain;
 
+import javax.persistence.Entity;
+
+@Entity
 public class KeyProduceDomain {
-    private  int key ;
+    private  int keyID ;
     private  String tableIdName;
     private String tableName;
-    private int value;
+    private int keyValue;
     private String comments;
 
-    public int getKey() {
-        return key;
+    public int getKeyID() {
+        return keyID;
     }
 
-    public void setKey(int key) {
-        this.key = key;
+    public void setKeyID(int keyID) {
+        this.keyID = keyID;
     }
 
     public String getTableIdName() {
@@ -31,12 +34,12 @@ public class KeyProduceDomain {
         this.tableName = tableName;
     }
 
-    public int getValue() {
-        return value;
+    public int getKeyValue() {
+        return keyValue;
     }
 
-    public void setValue(int value) {
-        this.value = value;
+    public void setKeyValue(int keyValue) {
+        this.keyValue = keyValue;
     }
 
     public String getComments() {

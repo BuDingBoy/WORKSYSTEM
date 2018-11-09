@@ -36,7 +36,7 @@
     </select>
 
     <insert id="insertWorkRecord" parameterType="WorkRecordDomain" >
-        INSERT INTO WORK_RECORD(STAFF_ID,RECORD_DATE,CONTENT,NO_COMPLETED,TITLE) VALUES(#{staffID},NOW(),#{content},#{noCompleted},#{title})
+        INSERT INTO WORK_RECORD(RECORD_ID,STAFF_ID,RECORD_DATE,CONTENT,NO_COMPLETED,TITLE) VALUES(#{recordID},#{staffID},NOW(),#{content},#{noCompleted},#{title})
     </insert>
 
     <update id="updateWorkRecordByKey" parameterType="WorkRecordDomain">

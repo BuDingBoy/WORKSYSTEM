@@ -30,22 +30,6 @@
                 <input type="button" onclick="modify()" value="修改"/>
                 <input type="button" onclick="deleteWorkRecord()" value="删除"/>
             </div>
-                <!--<table id="showWorkRecord" class="table table-hover">-->
-                    <!--<thead>-->
-                    <!--<tr>-->
-                        <!--<th><input type="checkbox" id="allChecked" value="全选"/></th>-->
-                        <!--<th hidden="true">记录编号</th>-->
-                        <!--<th hidden="true">标题</th>-->
-                        <!--<th>时间</th>-->
-                        <!--<th>已完成</th>-->
-                        <!--<th>未完成</th>-->
-                        <!--<th>备注</th>-->
-                    <!--</tr>-->
-                    <!--</thead>-->
-                    <!--<tbody>-->
-                   <!---->
-                    <!--</tbody>-->
-                <!--</table>-->
         </form>
     </div>
 
@@ -57,53 +41,6 @@
 
     </div>
 
-
-    <!-- 模态框（Modal） -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="myModalLabel">
-                        添加工作记录
-                    </h6>
-                    <button type="button" class="close" data-dismiss="modal"
-                            aria-hidden="true">×
-                    </button>
-                </div>
-                <div class="modal-body">
-                   <form  class="modalForm">
-
-                       <table id="modalWorkRecord">
-                           <input type="hidden" name="operationType"/>
-                           <input type="hidden" name="recordID"/>
-                           <tbody>
-                           <tr>
-                               <th>已完成：</th>
-                               <td> <textarea class="completedText" name="content"></textarea></td>
-                           </tr>
-                           <tr>
-                               <th>未完成：</th>
-                               <td>  <textarea class="completedText" name="noCompleted"></textarea></td>
-                           </tr>
-                           <tr>
-                               <th> 备注：</th>
-                               <td><textarea class="commentsText" name="title"></textarea></td>
-                           </tr>
-                           </tbody>
-                       </table>
-                   </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger"
-                            data-dismiss="modal">取消
-                    </button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="buttonOperation()" name="yes">
-                        确定
-                    </button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
 </main>
 <footer>
 </footer>
@@ -158,7 +95,6 @@
         var data={};
         $.post("../workRecord/findWorkRecordByWhere.dao",data,(results) =>{
             var str="";
-            var tablestr="";
             $.each(results,(i,workRecordVO) =>{
                 var comp=workRecordVO.content;
                 if (comp.length>150){
@@ -168,78 +104,59 @@
             <div class="a-workRecord-div" onmouseout="overShow(this)" onmouseover="openLink(this)">
                 <input type="hidden" name="recordID" value="${workRecordVO.recordID}">
                 <input type="hidden" name="staffID" value="${workRecordVO.staffID}">
-                <h4 class="a-workRecord-title-h" >${workRecordVO.title}</h4>
+                <h4 class="a-workRecord-title-h" ><a onclick="lookWorkRecord(this)">${workRecordVO.title}</a></h4>
                 <p class="a-workRecord-context-p">${comp}</p>
                 <div class="a-workRecord-dis">
                     <span>${workRecordVO.recordDate}</span>
                     <div>
                         <nav >
-                            <a href="WriteWorkRecord.html">编辑</a>|
-                            <a>删除</a>
+                            <a href="WriteWorkRecord.html" onclick="modifyWorkRecord(this)">编辑</a>|
+                            <input type="button" value="删除" onclick="del(this)">
                         </nav>
                     </div>
                 </div>
             </div>
             `;
 
-                // tablestr +=`
-                //   <tr>
-                //
-                //     <td><input type="checkbox" name="workRecordCheck" /></td>
-                //     <td name="recordID" hidden="true">${workRecordVO.recordID}</td>
-                //      <td name="staffID" hidden="true">${workRecordVO.staffID}</td>
-                //      <td name="recordDate">${workRecordVO.recordDate}</td>
-                //       <td name="content">${comp}</td>
-                //        <td name="noCompleted">${workRecordVO.noCompleted}</td>
-                //         <td name="title">${workRecordVO.title}</td>
-                // </tr>
-                // `;
             });
-            $("#workRecordForm").append(str);
-            // $("#showWorkRecord tbody").html(tablestr);
+            $("#workRecordForm").html(str);
         },"json");
     }
 
+    function del(butt) {
+        let data={};
+        data.recordID=$(butt).parents('.a-workRecord-div').children('input[name="recordID"]').val();
+        $.post("../workRecord/deleteWorkRecordByKey.dao",data,(results) =>{
+            if (results=='1'){
+                searchWorkRecord();
+            } else {
+                alert('删除失败！');
+            }
+        },'text');
+    }
     /**
      * 鼠标移动到上面时显示右下角操作连接
      */
     function openLink(x) {
-        console.log( $(x).find("nav").text())
+        // console.log( $(x).find("nav").text())
         $(x).find("nav").css("display","inline");
     }
     function overShow(x) {
         $(x).find("nav").css("display","none");
     }
-    function modify() {
-        let $compnent = $('#showWorkRecord input[name="workRecordCheck"]:checked').parent('td').parent('tr');
-       if ($compnent.length<1){
-           alert('请选择一条数据！')
-       } else if ($compnent.length>1){
-            alert('只能选择一条数据！')
-        } else{
-           $('#modalWorkRecord input[name="operationType"]').val("2");
-           $('#modalWorkRecord input[name="recordID"]').val($compnent.eq(0).children('td[name="recordID"]').text());
-           $('#modalWorkRecord textarea[name="content"]').val($compnent.eq(0).children('td[name="content"]').text());
-           $('#modalWorkRecord textarea[name="noCompleted"]').val($compnent.eq(0).children('td[name="noCompleted"]').text());
-           $('#modalWorkRecord textarea[name="title"]').val($compnent.eq(0).children('td[name="title"]').text());
-            $('#myModal').modal('show');
-           searchWorkRecord();
-        }
+    function lookWorkRecord(x) {
+        var recordID=$(x).parents('.a-workRecord-div').children('input[name="recordID"]').val();
+        $(x).prop('href','ReadWorkRecord.html?recordID='+recordID);
     }
-    function modifyWorkRecord() {
-        var data={};
-        data.recordID=$('#modalWorkRecord input[name="recordID"]').val();
-        data.content=$('#modalWorkRecord textarea[name="content"]').val();
-        data.noCompleted=$('#modalWorkRecord textarea[name="noCompleted"]').val();
-        data.title=$('#modalWorkRecord textarea[name="title"]').val();
-        // console.log(data);
-        // alert(data.recordID);
-        $.post("../workRecord/updateWorkRecordByKey.dao", data, function (results) {
-            // console.log(results);
 
-            searchWorkRecord();
+    /**
+     * 修改工作记录
+     * @param x
+     */
+    function modifyWorkRecord(x) {
+        var recordID=$(x).parents('.a-workRecord-div').children('input[name="recordID"]').val();
+        $(x).prop('href','WriteWorkRecord.html?recordID='+recordID);
 
-        }, "text");
     }
     function  deleteWorkRecord() {
         let $compnent =$('#showWorkRecord input[name="workRecordCheck"]:checked').parent('td').parent('tr');

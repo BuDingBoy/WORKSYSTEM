@@ -4,17 +4,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lzp.dao.KeyProduceDao">
     <resultMap id="keyProduceDomain" type="com.lzp.domain.KeyProduceDomain">
-        <id column="KEY" property="key" javaType="int" jdbcType="INTEGER"/>
+        <id column="KEY_ID" property="keyID" javaType="int" jdbcType="INTEGER"/>
         <result column="TABLE_ID_NAME" property="tableIdName" javaType="String" jdbcType="VARCHAR"/>
         <result column="TABLE_NAME" property="tableName" javaType="String" jdbcType="VARCHAR"/>
-        <result column="VALUE" property="value" javaType="int" jdbcType="INTEGER"/>
+        <result column="KEY_VALUE" property="keyValue" javaType="int" jdbcType="INTEGER"/>
         <result column="COMMENTS" property="comments" javaType="String" jdbcType="VARCHAR"/>
     </resultMap>
-    <select id="findNowMaxID" parameterType="KeyProduceDomain" resultMap="keyProduceDomain">
-        SELECT * FROM KEY_PRODUCE WHERE KEY=#{key}
+    <select id="findNowMaxID" parameterType="int" resultMap="keyProduceDomain">
+        SELECT KEY_ID,KEY_VALUE FROM KEY_PRODUCE WHERE KEY_ID=#{keyID}
     </select>
     <update id="updateTableKey" parameterType="KeyProduceDomain">
-      update KEY_PRODUCE SET VALUE =#{value}
+      update KEY_PRODUCE SET KEY_VALUE =#{keyValue} WHERE KEY_ID=#{keyID}
     </update>
+    <select id="findMaxIDByKey" resultType="int">
+        call proc_findMaxIDByKey(#{keyID},#{num})
+    </select>
 
 </mapper>

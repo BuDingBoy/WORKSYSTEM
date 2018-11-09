@@ -1,9 +1,13 @@
 package com.lzp.service.impl;
 
+import com.lzp.dao.KeyProduceDao;
 import com.lzp.dao.WorkRecordDao;
+import com.lzp.domain.KeyProduceDomain;
 import com.lzp.domain.WorkRecordDomain;
+import com.lzp.service.KeyProduceService;
 import com.lzp.service.StaffService;
 import com.lzp.service.WorkRecordService;
+import com.lzp.util.Constant;
 import com.lzp.util.ConvertBuilder;
 import com.lzp.vo.StaffVO;
 import com.lzp.vo.WorkRecordVO;
@@ -25,6 +29,10 @@ public class StaffServiceImplTest {
     private WorkRecordDao workRecordDao;
     @Autowired
     private WorkRecordService workRecordService;
+    @Autowired
+    private KeyProduceDao keyProduceDao;
+    @Autowired
+    private KeyProduceService keyProduceService;
 
     @Test
     public void selectStaffByWhere() {
@@ -71,5 +79,11 @@ public class StaffServiceImplTest {
         findWorkRecordByWhere();
     }
 
+    @Test
+    public void getkey(){
+        String  key =keyProduceService.getTableKey("WORK_RECORD");
+        System.out.println(key);
+
+    }
 
 }

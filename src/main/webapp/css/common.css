@@ -23,7 +23,7 @@ body > footer p{
     font-family: 微软雅黑;
     color: white;
 }
-body  a{
+body a{
     color: white;
     margin-right: 10px;
 }
@@ -31,7 +31,7 @@ body  a:link{
     color: white;
     text-decoration: none;
 }
-body  a:hover{
+body a:hover{
     color: red;
 }
 
@@ -123,7 +123,7 @@ body{
 .work-form-div{
     background: white;
     padding: 10px;
-    height: 70rem;
+    height: 49rem;
 }
 .a-workRecord-div{
     margin-top: 2px;
@@ -160,4 +160,37 @@ body{
 }
 .a-workRecord-dis nav{
     display: none;
+}
+
+
+.read-workRecord-title{
+    font-size: 30px;
+    height: 20%;
+    margin-bottom: 10px;
+    font-family: 黑体;
+    font-weight: bolder;
+    color: #3d3d3d;
+    display: inline-block;
+}
+.read-workRecord-context{
+    word-wrap: break-word;
+    font-size: 16px;
+    height: 60%;
+    margin: 0px;
+    white-space: pre-line;
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+.read-workRecord-dis{
+    height: 10%;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+.read-workRecord{
+    margin: 10px;
+}
+
+.hr-style{
 }

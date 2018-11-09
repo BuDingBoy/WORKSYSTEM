@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../css/workRecord.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+
+    <link href="../css/bootstrap.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+</head>
+<body>
+<header></header>
+<main><audio src="../music/believeSelf.mp3" controls="controls" preload id="bgMusic"></audio>
+</main>
+<footer></footer>
+</audio>
+</body>
+<script>
+    $(() =>{
+        var audio = document.getElementById('bgMusic');
+        if(audio!==null){
+            if(audio.paused)                     {
+                audio.play();//audio.play();// 这个就是播放
+            }else{
+                audio.pause();// 这个就是暂停
+            }
+        }
+    });
+</script>
+</html>

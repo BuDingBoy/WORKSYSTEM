@@ -19,7 +19,7 @@ let aside = `
          </div>
     </div>`;
 let footer = `
-    <p><a href="https://blog.csdn.net/qq_34312317 ">制作人：刘政平</a></p>
+    <p><a href="https://blog.csdn.net/qq_34312317 " class="common-a">制作人：刘政平</a></p>
     |
     <p>邮箱：1757266829@qq.com</p>
     |
