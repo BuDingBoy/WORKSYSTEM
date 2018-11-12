@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lzp.dao.WorkRecordDao">
+    <resultMap id="wordRecordDomain" type="com.lzp.domain.WorkRecordDomain">
+        <id column="RECORD_ID" property="recordID" javaType="int" jdbcType="INTEGER"/>
+        <result column="STAFF_ID" property="staffID" javaType="int" jdbcType="INTEGER"/>
+        <result column="RECORD_DATE" property="recordDate" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result column="CONTENT" property="content" javaType="String" jdbcType="VARCHAR"/>
+        <result column="NO_COMPLETED" property="noCompleted" javaType="String" jdbcType="VARCHAR"/>
+        <result column="TITLE" property="title" javaType="String" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="findWorkReportByWhere" parameterType="WorkRecordDomain" resultMap="wordRecordDomain">
+        select * from WORK_RECORD
+        <where>
+            <if test="recordID != null and recordID !=''">
+                RECORD_ID=#{recordID}
+            </if>
+            <if test="staffID != null and staffID !=''" >
+                and STAFF_ID=#{staffID}
+            </if>
+            <if test="content != null and content !=''" >
+                and CONTENT=#{content}
+            </if>
+            <if test="noCompleted != null and noCompleted !=''" >
+                and NO_COMPLETED=#{noCompleted}
+            </if>
+            <if test="title != null and title !=''" >
+                and TITLE=#{title}
+            </if>
+
+        </where>
+        ORDER BY RECORD_DATE
+    </select>
+
+    <insert id="insertWorkRecord" parameterType="WorkRecordDomain" >
+        INSERT INTO WORK_RECORD(RECORD_ID,STAFF_ID,RECORD_DATE,CONTENT,NO_COMPLETED,TITLE) VALUES(#{recordID},#{staffID},NOW(),#{content},#{noCompleted},#{title})
+    </insert>
+
+    <update id="updateWorkRecordByKey" parameterType="WorkRecordDomain">
+        update WORK_RECORD SET RECORD_DATE=NOW(),CONTENT=#{content},NO_COMPLETED=#{noCompleted},TITLE=#{title} WHERE RECORD_ID=#{recordID}
+    </update>
+
+    <delete id="deleteWorkRecordByKey" parameterType="WorkRecordDomain">
+        delete FROM WORK_RECORD WHERE RECORD_ID=#{recordID}
+    </delete>
+</mapper>

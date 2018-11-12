@@ -1,0 +1,196 @@
+.mainClass{
+    display: flex;
+    height:80rem;
+    margin-left: 5px;
+    margin-right: 5px;
+    justify-content: center;
+}
+.workAside{
+    width: 20%;
+    margin-right: 5px;
+    display: flex;
+    flex-direction: column;
+}
+body > footer{
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body > footer p{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: 微软雅黑;
+    color: white;
+}
+body a{
+    color: white;
+    margin-right: 10px;
+}
+body  a:link{
+    color: white;
+    text-decoration: none;
+}
+body a:hover{
+    color: red;
+}
+
+.commonHeader{
+    display: flex;
+    justify-content: flex-start;
+}
+.catalog{
+    display: flex;
+    justify-content: flex-end;
+    background: white;
+}
+
+.logo-img{
+    height: 50px;
+    width: 135px;
+    margin-left: 50px;
+}
+
+
+tr:nth-child(2n){
+
+}
+
+.modal-dialog{
+    width: 200pt;
+}
+
+#imgPhoto{
+    right: 10px;
+    border-radius: 25px;
+    border: none;
+    width: 40px;
+    height: 40px;
+}
+.commonHeader div{
+    width: 50%;
+
+}
+.login-div{
+    order: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.loginIDStyle{
+    margin-right: 20px;
+    margin-left: 20px;
+    font-family: 华文行楷 ;
+    font-weight: bolder;
+    font-size: large;
+    color: white;
+}
+.top-nav-connect{
+    margin-right: 20px;
+    margin-left: 20px;
+    font-family: 微软雅黑 ;
+    font-size: medium;
+    color: white;
+}
+body{
+    background: url("../images/bg.jpg") repeat fixed;
+}
+
+.contact-me{
+    display: flex;
+    width: 100%;
+    height: 20%;
+    background: white;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+
+}
+.QR-img{
+    width: 100px;
+    height: 100px;
+}
+.nav-div{
+    height: 40%;
+    width: 100%;
+    background: white;
+    margin-bottom: 5px;
+}
+.workContent{
+    width: 60%;
+    margin-right: 5px;
+}
+.work-form-div{
+    background: white;
+    padding: 10px;
+    height: 49rem;
+}
+.a-workRecord-div{
+    margin-top: 2px;
+    background: white;
+    padding: 12px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.a-workRecord-title-h{
+    font-size: 20px;
+    height: 20%;
+    margin: 0px;
+    font-family: 黑体;
+    font-weight: bolder;
+    color: #3d3d3d;
+    display: inline-block;
+}
+.a-workRecord-context-p{
+    word-wrap: break-word;
+    font-size: 15px;
+    height: 60%;
+    margin: 0px;
+    /*white-space: pre-line;*/
+    overflow: hidden;
+    line-height: 1.5;
+    color: darkgray;
+}
+
+.a-workRecord-dis{
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+.a-workRecord-dis nav{
+    display: none;
+}
+
+
+.read-workRecord-title{
+    font-size: 30px;
+    height: 20%;
+    margin-bottom: 10px;
+    font-family: 黑体;
+    font-weight: bolder;
+    color: #3d3d3d;
+    display: inline-block;
+}
+.read-workRecord-context{
+    word-wrap: break-word;
+    font-size: 16px;
+    height: 60%;
+    margin: 0px;
+    white-space: pre-line;
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+.read-workRecord-dis{
+    height: 10%;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+.read-workRecord{
+    margin: 10px;
+}
+
+.hr-style{
+}

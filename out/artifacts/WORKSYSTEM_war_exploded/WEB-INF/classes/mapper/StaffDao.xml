@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lzp.dao.StaffDao">
+    <resultMap id="staffDomain" type="com.lzp.domain.StaffDomain">
+        <id column="STAFF_ID" property="staffID" javaType="int" jdbcType="INTEGER"/>
+        <result column="STAFF_NAME" property="staffName" javaType="String" jdbcType="VARCHAR"/>
+        <result column="STAFF_ORG" property="staffORG" javaType="int" jdbcType="INTEGER"/>
+        <result column="STAFF_PWD" property="staffPWD" javaType="String" jdbcType="VARCHAR"/>
+        <result column="EMAIL" property="email" javaType="String" jdbcType="VARCHAR"/>
+        <result column="PHONE" property="phone" javaType="String" jdbcType="VARCHAR"/>
+        <result column="LOGIN_ID" property="loginID" javaType="String" jdbcType="VARCHAR"/>
+        <result column="NICKNAME" property="nickname" javaType="String" jdbcType="VARCHAR"/>
+    </resultMap>
+    
+    <select id="selectStaffByWhere" parameterType="StaffDomain" resultMap="staffDomain">
+        select * from STAFF
+        <where>
+            <if test="staffID != null and staffID !=''">
+                STAFF_ID=#{staffID}
+            </if>
+            <if test="staffName != null and staffName !=''" >
+                and STAFF_NAME=#{staffName}
+            </if>
+        </where>
+    </select>
+    <select id="loginByStaff" parameterType="StaffDomain" resultMap="staffDomain">
+        select * from STAFF  WHERE STAFF_PWD=#{staffPWD} AND (LOGIN_ID=#{loginID} OR EMAIL=#{email})
+    </select>
+</mapper>

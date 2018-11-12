@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../css/workRecord.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+
+    <link href="../css/bootstrap.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+</head>
+<body>
+<header class="commonHeader">
+    <div class="login-div">
+        <a href="workRecord.html">
+            <img src="../images/monkey1.jpg" id="imgPhoto">
+            <span class="loginIDStyle" id="loginNickname">一寸灰</span>
+        </a>
+
+
+    </div>
+</header>
+<main class="mainClass">
+    <aside class="workAside"></aside>
+    <div class="workContent">
+        <div class="work-form-div">
+            <form id="workRecordForm" >
+                <div class="">
+                    <input type="hidden" name="isSubmit" value="1"/>
+                    <input type="hidden" name="recordID" value="${recordID}"/>
+                    <label for="recordTitle"></label><input type="text"id="recordTitle" name="title" placeholder="请输入标题" />
+                </div>
+                <div>
+                   <textarea class="write-recordContent" placeholder="正文" name="content"></textarea>
+                    <input type="file" value="上传附件"/>
+                </div>
+                <div class="write-save-div">
+                    <input type="button" value="保存" onclick="addWorkRecord()"/>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+    <div class="file-div">
+        <div class="file-title">
+            <span>附件</span>
+        </div>
+
+    </div>
+</main>
+<footer>
+</footer>
+
+</body>
+<script type="text/javascript">
+
+
+    $(() =>{
+        $('nav li:nth-of-type(1)').addClass('active');
+        $.post('../staff/getLoginStaffVO.dao','',(results) =>{
+            console.log(results.nickname);
+            $('#loginNickname').text(results.nickname);
+
+        },'json');
+        getParams();
+    });
+    function getParams() {
+
+        //获取Location对象的search属性值
+        var searchStr = location.search;
+        if (searchStr.length>1){
+            //由于searchStr属性值包括“?”，所以除去该字符
+            searchStr = searchStr.substr(1);
+            //将searchStr字符串分割成数组，数组中的每一个元素为一个参数和参数值
+            var searchs = searchStr.split("&");
+            //获得第一个参数和值
+            var address = searchs[0].split("=");
+            var recordID=address[1]
+            console.log(recordID);
+            //设置连接的点击样式
+            //加载记录
+            loadWorkRecord(recordID)
+        }
+        else {
+            console.log('没有参数')
+        }
+    }
+    function loadWorkRecord(recordID) {
+        var data={};
+        data.recordID=recordID;
+        $.post("../workRecord/findWorkRecordByWhere.dao",data,(results) =>{
+            var str="";
+            $.each(results,(i,workRecordVO) =>{
+                $('#workRecordForm input[name="isSubmit"]').val(0);
+                $('#workRecordForm input[name="recordID"]').val(workRecordVO.recordID);
+                $('#workRecordForm textarea[name="content"]').val(workRecordVO.content);
+                $('#workRecordForm input[name="title"]').val(workRecordVO.title);
+            });
+        },"json");
+    }
+    
+    function timerModify() {
+        var content=$('#workRecordForm textarea[name="content"]').val();
+        var title=$('#workRecordForm input[name="title"]').val();
+        if (content!=null && title!=null){
+            addWorkRecord()
+        }
+    }
+    //var timer=window.setInterval(timerModify(),1000*6);
+
+    function addWorkRecord() {
+
+        var data={};
+        data.content=$('#workRecordForm textarea[name="content"]').val();
+        data.title=$('#workRecordForm input[name="title"]').val();
+        console.log(data);
+        var isSubmit=$('#workRecordForm input[name="isSubmit"]').val();
+        //isSubmit==1表示不能存在此记录，需要新添加
+        if(isSubmit==1){
+            // alert(data.comments);
+            $.post("../workRecord/insertWorkRecord.dao", data, function (results) {
+                if (results!='0'){
+                    $('#workRecordForm input[name="isSubmit"]').val(0);
+                    $('#workRecordForm input[name="recordID"]').val(results);
+                    alert("已保存")
+
+                }
+            }, "text");
+
+        }else{
+            data.recordID= $('#workRecordForm input[name="recordID"]').val();
+            $.post("../workRecord/updateWorkRecordByKey.dao", data, function (results) {
+                alert("已保存")
+            }, "text");
+        }
+
+    }
+    function modifyWorkRecord() {
+        var data={};
+        data.recordID=$('#modalWorkRecord input[name="recordID"]').val();
+        data.completed=$('#modalWorkRecord textarea[name="completed"]').val();
+        data.noCompleted=$('#modalWorkRecord textarea[name="noCompleted"]').val();
+        data.comments=$('#modalWorkRecord textarea[name="comments"]').val();
+        // console.log(data);
+        // alert(data.recordID);
+        $.post("../workRecord/updateWorkRecordByKey.dao", data, function (results) {
+            // console.log(results);
+
+            searchWorkRecord();
+
+        }, "text");
+    }
+</script>
+</html>
