@@ -2,23 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="../css/login.css" />
-    <link rel="stylesheet" type="text/css" href="../css/common.css" />
-    <link href="../css/bootstrap.css" type="text/css" rel="stylesheet">
-    <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
-    <script type="text/javascript" src="../js/bootstrap.js"></script>
-    <script type="text/javascript" src="../js/common.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/login.css" />
+    <link rel="stylesheet" type="text/css" href="./css/common.css" />
+    <link href="./css/bootstrap.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.js"></script>
+    <script type="text/javascript" src="./js/common.js"></script>
     <title>Title</title>
 </head>
 <body>
 <header class="commonHeader"></header>
 <main class="loginMainClass">
+
     <div class="login-space">
         <form action="workRecord.html">
-            <div><span>账户：</span><input type="text" name="loginID" class="login-input" value placeholder="用户名/ID/邮箱"/></div>
-            <div><span>密码：</span><input type="password" name="staffPWD" class="login-input"  value placeholder="密码"/></div>
+
+            <div><span>账户：</span><input type="text" name="loginID" class="login-input" value="lzp" placeholder="用户名/ID/邮箱"/></div>
+            <div><span>密码：</span><input type="password" name="staffPWD" class="login-input"  value="123" placeholder="密码"/></div>
             <div><input type="button" value="登录" class="login-button" onclick="staffLogin()"/></div>
+
         </form>
+        <button onclick="search()">sousuo</button>
     </div>
 </main>
 <footer></footer>
@@ -31,15 +35,29 @@
         data.staffPWD=$('.login-space input[name="staffPWD"]').val();
         if (data.staffID==''||data.staffPWD==''){
             alert('请输入用户名或密码');
+            return;
         }
         // console.log(data)
-        $.post("../staff/loginStaff.dao",data,(results) =>{
+        $.post("./staff/loginStaff.dao",data,(results) =>{
             if (results=='1') {
-                $(location).prop('href','workRecord.html');
+                $(location).prop('href','./html/workRecord.html');
             }else {
                 alert("该用户不存在");
             }
         },'text');
+    }
+
+    function search() {
+        let params={};
+        params.arr='PVG'
+        params.dpt='PEK'
+        params.date='2018-12-09'
+        params.ex_track='tehui'
+        params.level="1";
+         $.post('./abc/getdata.dao',params,(results) =>{
+             console.log(results)
+
+        },'json');
     }
 </script>
 </html>
