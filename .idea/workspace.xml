@@ -7,24 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d4f4dd9-bf88-4fd8-aebf-beaf5fe2e115" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzp/abc/AbcConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzp/abc/CarrierMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzp/abc/FlightTools.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzp/control/ABCController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzp/domain/FlightBackInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzp/domain/FlightInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzp/domain/FlightInfoParams.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzp/domain/FlightInfoResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzp/domain/FlightPriceBackInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzp/domain/FlightPriceParams.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzp/domain/FlightPriceResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzp/domain/FlightPriceVendors.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzp/domain/FlightTgqPointCharges.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzp/domain/FlightTgqShowData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzp/domain/SystemParam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/abc.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/html/abc.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/abcCommon.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/WORKSYSTEM/WORKSYSTEM.war" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WORKSYSTEM/WORKSYSTEM.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/WORKSYSTEM_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WORKSYSTEM_war_exploded/WEB-INF/web.xml" afterDir="false" />
@@ -33,10 +15,6 @@
       <change beforePath="$PROJECT_DIR$/out/artifacts/WORKSYSTEM_war_exploded/html/author.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WORKSYSTEM_war_exploded/html/author.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/WORKSYSTEM_war_exploded/html/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WORKSYSTEM_war_exploded/html/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/WORKSYSTEM_war_exploded/html/workRecord.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WORKSYSTEM_war_exploded/html/workRecord.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/common.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/workRecord.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/workRecord.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -420,8 +398,12 @@
       <file leaf-file-name="abc.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/html/abc.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="108" column="34" lean-forward="true" selection-start-line="108" selection-start-column="34" selection-end-line="108" selection-end-column="34" />
+            <state relative-caret-position="222">
+              <caret line="184" column="83" lean-forward="true" selection-start-line="184" selection-start-column="83" selection-end-line="184" selection-end-column="83" />
+              <folding>
+                <element signature="n#style#0;n#h4#0;n#div#0;n#div#2;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h4#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1214,7 +1196,7 @@
       <workItem from="1542870701885" duration="10449000" />
       <workItem from="1542895892127" duration="3395000" />
       <workItem from="1542933504782" duration="32045000" />
-      <workItem from="1543193084514" duration="6062000" />
+      <workItem from="1543193084514" duration="6839000" />
     </task>
     <task id="LOCAL-00001" summary="commit files all">
       <created>1538991118938</created>
@@ -1258,7 +1240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1541985383683</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="后台添加了飞机票价格查询的功能">
+      <created>1543199599638</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1543199599638</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1294,7 +1283,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="326593000" />
+    <option name="totallyTimeSpent" value="327370000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1433,7 +1422,8 @@
     <MESSAGE value="commit files all" />
     <MESSAGE value="对工作报告完成了初步实验，可以在网页上看到数据" />
     <MESSAGE value="完成了大部分功能，前台已经能够正常展示" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成了大部分功能，前台已经能够正常展示" />
+    <MESSAGE value="后台添加了飞机票价格查询的功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="后台添加了飞机票价格查询的功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2190,8 +2180,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/html/abc.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="108" column="34" lean-forward="true" selection-start-line="108" selection-start-column="34" selection-end-line="108" selection-end-column="34" />
+        <state relative-caret-position="222">
+          <caret line="184" column="83" lean-forward="true" selection-start-line="184" selection-start-column="83" selection-end-line="184" selection-end-column="83" />
+          <folding>
+            <element signature="n#style#0;n#h4#0;n#div#0;n#div#2;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
