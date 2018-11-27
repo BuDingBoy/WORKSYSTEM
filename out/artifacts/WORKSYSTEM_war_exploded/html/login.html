@@ -22,7 +22,6 @@
             <div><input type="button" value="登录" class="login-button" onclick="staffLogin()"/></div>
 
         </form>
-        <button onclick="search()">sousuo</button>
     </div>
 </main>
 <footer></footer>
@@ -45,19 +44,6 @@
                 alert("该用户不存在");
             }
         },'text');
-    }
-
-    function search() {
-        let params={};
-        params.arr='PVG'
-        params.dpt='PEK'
-        params.date='2018-12-09'
-        params.ex_track='tehui'
-        params.level="1";
-         $.post('./abc/getdata.dao',params,(results) =>{
-             console.log(results)
-
-        },'json');
     }
 </script>
 </html>

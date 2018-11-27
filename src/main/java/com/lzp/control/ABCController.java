@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.lzp.abc.FlightTools.getFlightBackInfo;
 import static com.lzp.abc.FlightTools.getUrl;
@@ -46,14 +49,27 @@ public class ABCController {
                 }
             }
         }else{
-            return flightInfos;
+            newflightInfos = flightInfos;
         }
+
+        Collections.sort(newflightInfos, new Comparator<FlightInfo>() {
+            @Override
+            public int compare(FlightInfo o1, FlightInfo o2) {
+                if (o1.getBarePrice()>o2.getBarePrice()){
+                    return 1;
+                }else  if (o1.getBarePrice()<o2.getBarePrice()){
+                    return -1;
+                }else {
+                    return 0;
+                }
+            }
+        });
         return newflightInfos;
     }
 
     @ResponseBody
     @RequestMapping(value = "/searchFlightPrice")
-    public FlightPriceBackInfo searchFlightPrice( FlightPriceParams flightPriceParams, String level) {
+    public FlightPriceResult searchFlightPrice( FlightPriceParams flightPriceParams, String level) {
         System.out.println(JSON.toJSONString(flightPriceParams));
         String paramsUtf = paramsEncoderByUtf8(JSON.toJSONString(flightPriceParams));
         System.out.println(paramsUtf);
@@ -63,8 +79,29 @@ public class ABCController {
         String urlFinal = getUrl(AbcConstant.baseUrl, sign, AbcConstant.searchLightPriceTag, AbcConstant.token, "1506338970415", paramsUtf);
         System.out.println(urlFinal);
         String backinfo = getFlightBackInfo(urlFinal);
-        FlightPriceBackInfo flightPriceBackInfo = JSON.parseObject(backinfo, new TypeReference<FlightPriceBackInfo>() {
+        FlightPriceBackInfo flightPriceBackInfo = JSON.parseObject(backinfo, new TypeReference<FlightPriceBackInfo>() {});
+        if (!level.equals("1")){
+            List<FlightPriceVendors> flightPriceVendorsList = new ArrayList<>();
+            List<FlightPriceVendors> flightPriceVendorsParams=flightPriceBackInfo.getResult().getVendors();
+            for (FlightPriceVendors flightPriceVendors1:flightPriceVendorsParams){
+                if (flightPriceVendors1.getCabinType()==0){
+                    flightPriceVendorsList.add(flightPriceVendors1);
+                }
+            }
+            flightPriceBackInfo.getResult().setVendors(flightPriceVendorsList);
+        }
+        Collections.sort(flightPriceBackInfo.getResult().getVendors(), new Comparator<FlightPriceVendors>() {
+            @Override
+            public int compare(FlightPriceVendors o1, FlightPriceVendors o2) {
+                if (o1.getPrice()>o2.getPrice()){
+                    return  1;
+                }else if (o1.getPrice()<o2.getPrice()){
+                    return -1;
+                }else {
+                    return 0;
+                }
+            }
         });
-        return flightPriceBackInfo;
+        return flightPriceBackInfo.getResult();
     }
 }

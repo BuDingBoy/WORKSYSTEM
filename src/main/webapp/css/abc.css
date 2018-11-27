@@ -21,14 +21,14 @@ body > footer p{
     margin-left: 10px;
     margin-right: 10px;
     font-family: 微软雅黑;
-    color: white;
+    color: black;
 }
 body a{
-    color: white;
+    color: black;
     margin-right: 10px;
 }
 body  a:link{
-    color: white;
+    color: black;
     text-decoration: none;
 }
 body a:hover{
@@ -85,17 +85,17 @@ tr:nth-child(2n){
     font-family: 华文行楷 ;
     font-weight: bolder;
     font-size: large;
-    color: white;
+    color: black;
 }
 .top-nav-connect{
     margin-right: 20px;
     margin-left: 20px;
     font-family: 微软雅黑 ;
     font-size: medium;
-    color: white;
+    color: black;
 }
 body{
-    background: url("../images/bg.jpg") repeat fixed;
+    background: url("../images/abcLogo.jpg") repeat fixed;
 }
 
 .contact-me{
@@ -113,7 +113,7 @@ body{
     height: 100px;
 }
 .nav-div{
-    height: 40%;
+    height: 30%;
     width: 100%;
     background: white;
     margin-bottom: 5px;
@@ -137,6 +137,8 @@ body{
     flex-direction: row;
     justify-content: space-between;
     align-items:center;
+    border-top:1px solid #cce5ff;
+    cursor: pointer;
 }
 .a-workRecord-title-h{
     font-size: 20px;
@@ -241,15 +243,29 @@ body{
     padding: 10px;
     width: 100%;
     height: 300px;
+    font-size: 15px;
+    font-family: 华文宋体;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
 }
 
 #search-form div{
     margin-top: 10px;
 }
+.title-p{
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
 
 .air-select{
     width: 70%;
+    height: 35px;
 }
 
 .sit-price{
@@ -259,19 +275,88 @@ body{
     align-items: center;
 }
 .yuding-button{
-    margin-left: 10px;
-    cursor: pointer;
-    background: #ffe174;
     border: 0;
-    height: 25px;
-    padding: 0;
-    font-family: 华文宋体;
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    background: #ff9705;
+    color: #fff;
+    border-radius: 4px;
+    text-align: center;
     font-size: 14px;
-    width:50px;
-    border-radius: 20% ;
+    cursor: pointer;;
 
 }
 
 .sit{
     display: flex;
+}
+
+#abc-body{
+    background: #f3f3f3;
+}
+.a-flightPrice-div{
+    margin-top: 2px;
+    background: white;
+    padding: 0px 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+    border-top:1px solid #cce5ff;
+    box-shadow:0px 0px  5px 5px #cce5ff;
+}
+
+.flightPrice-table{
+    border: 0;
+    margin: 0;
+    width: 100%;
+}
+.flightPrice-table tr{
+    height:40px;
+    border-top:1px solid #cce5ff;
+}
+
+.price-td{
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.sousuo-button{
+    border: 0;
+    width: 90%;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    background: #ff9705;
+    color: #fff;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 18px;
+    font-family: 华文宋体;
+    font-weight: bold;
+    cursor: pointer;;
+}
+.sousuo-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.m-page{
+    border-radius: 50%;
+    border: solid 1px #28aebf;
+    margin: 0 5px;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+}
+.nav-page-div{
+    background: white;
+    display: flex;
+    justify-content: center;
 }

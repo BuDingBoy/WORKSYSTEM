@@ -1,5 +1,7 @@
 package com.lzp.domain;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.PrimitiveIterator;
 
 public class FlightPriceVendors {
@@ -21,7 +23,34 @@ public class FlightPriceVendors {
     private  String it;
     private  Integer cardType;
     private FlightTgqShowData tgqShowData;
+    private BusinessExtMap businessExtMap;
+    private String cabinTypeName;
+    private static Map<Integer,String> cabinTypeMap = new HashMap<>();
 
+    static {
+        cabinTypeMap.put(0,"经济舱");
+        cabinTypeMap.put(1,"头等舱");
+        cabinTypeMap.put(2,"商务舱");
+        cabinTypeMap.put(3,"经济舱精选");
+        cabinTypeMap.put(4,"经济舱Y舱");
+        cabinTypeMap.put(5,"超值头等舱");
+    }
+
+    public String getCabinTypeName() {
+        return cabinTypeMap.get(this.cabinType);
+    }
+
+    public void setCabinTypeName(String cabinTypeName) {
+        this.cabinTypeName = cabinTypeName;
+    }
+
+    public BusinessExtMap getBusinessExtMap() {
+        return businessExtMap;
+    }
+
+    public void setBusinessExtMap(BusinessExtMap businessExtMap) {
+        this.businessExtMap = businessExtMap;
+    }
 
     public FlightTgqShowData getTgqShowData() {
         return tgqShowData;

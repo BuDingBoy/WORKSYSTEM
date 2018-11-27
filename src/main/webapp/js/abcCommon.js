@@ -1,6 +1,6 @@
 let header = `
         <div>
-        <img class="logo-img" src="/WORKSYSTEM/images/worklogo2.png"/>
+        <img class="logo-img" src="/WORKSYSTEM/images/newlogo.png"/>
         </div>`;
 
 let footer = `

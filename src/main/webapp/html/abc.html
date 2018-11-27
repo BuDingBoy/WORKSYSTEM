@@ -11,10 +11,10 @@
     <script type="text/javascript" src="../js/bootstrap.js"></script>
     <script type="text/javascript" src="../js/abcCommon.js"></script>
 </head>
-<body >
+<body id="abc-body">
 <header class="commonHeader">
     <div class="login-div">
-        <nav class="top-nav-connect"><a href="WriteWorkRecord.html">写博文</a></nav>
+        <nav class="top-nav-connect"><a href="WriteWorkRecord.html">订单查询</a></nav>
         <img src="../images/monkey1.jpg" id="imgPhoto">
         <span class="loginIDStyle" id="loginNickname">一寸灰</span>
     </div>
@@ -23,14 +23,14 @@
     <aside class="workAside">
         <div class="nav-div">
             <form id="search-form" >
-                <div><span>始    发    站</span>
-                    <select name="beginAir" class="air-select" >
+                <div class="sousuo-div"><p class="title-p">始    发    站</p>
+                    <select name="beginAir" class="air-select"  >
                         <option value="PEK">北京</option>
                         <option value="SHA">上海</option>
                         <option value="CAN">广州</option>
-                        <option value="CTU">成都</option>
+                        <option value="CTU" selected="selected">成都</option>
                     </select></div>
-                <div><span>终   点   站</span>
+                <div class="sousuo-div"><p class="title-p">终   点   站</p>
                     <select  name="endAir"  class="air-select">
                         <option value="PEK">北京</option>
                         <option value="SHA">上海</option>
@@ -38,8 +38,8 @@
                         <option value="CTU">成都</option>
                     </select>
                 </div>
-                <div> <span>起飞时间</span><input type="date"  name="startTime" class="air-select"></div>
-                <div><span>员工职级</span>
+                <div class="sousuo-div"> <p class="title-p">起飞时间</p><input type="date"  name="startTime" class="air-select" id="startTime" value="2018-12-11"> </div>
+                <div class="sousuo-div"><p class="title-p">员工职级</p>
                     <select name="level" class="air-select">
                     <option value="1">总经理</option>
                     <option value="2">处级</option>
@@ -47,8 +47,7 @@
 
                 </select>
                 </div>
-                <div> <input type="button" value="搜索" onclick="search()"></div>
-
+                <div class="sousuo-div"> <input type="button" value="搜索" onclick="search()" class="sousuo-button"></div>
             </form>
 
         </div>
@@ -61,7 +60,8 @@
     <div class="workContent">
         <div>
             <form id="workRecordForm">
-                <div class="catalog"  >
+
+                <div class="catalog"  style="display: none">
                     <select name="beginAir" style="width: 150px" >
                         <option value="PEK">北京</option>
                         <option value="SHA">上海</option>
@@ -79,8 +79,11 @@
                     <input type="button" value="搜索" >
 
                 </div>
+                <input type="hidden" value="dd" name="dptDate">
                 <div id="abcFlightDiv">
-                    <div class="a-workRecord-div" onmouseout="overShow(this)" onmouseover="openLink(this)">
+
+                    <div class="a-workRecord-div" onclick="searchFlightPrice(this)">
+                        <input type="hidden" value="1" name="openOrClose">
                        <div>
                            <h4>航空公司</h4>
                            <p>MUDD34航班</p>
@@ -102,14 +105,34 @@
                         </div>
                         <div class="sit">
                             <div class="sit-price" style="color: #55ff79" >
-                                经济舱： <h4 style="color: red">666</h4>
+                                <h4 style="color: red">¥666</h4>
                                 <p style="color: red">4.5折</p>
                             </div>
-                            <div><input type="button" class="yuding-button" onclick="searchFlightPrice()" value="预定">
-                            </div>
+
                         </div>
 
                     </div>
+
+                    <div class="a-flightPrice-div" style="display: none" >
+                        <table  class="flightPrice-table">
+                            <tr>
+                                <td width="20%"> 去哪儿旗舰店</td>
+                                <td width="15%">经济舱</td>
+                                <td width="50%">改退免费</td>
+                                <td width="10%">¥666</td>
+                                <td width="10%" align="right"><input type="button" value="预定" class="yuding-button"></td>
+                            </tr>
+                            <tr>
+                                <td width="20%"> 去哪儿旗舰店</td>
+                                <td width="15%">经济舱</td>
+                                <td width="50%">改退免费</td>
+                                <td width="10%">¥666</td>
+                                <td width="10%" align="right"><input type="button" value="预定" class="yuding-button"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="nav-page-div" id="nav-page-div">
                 </div>
             </form>
         </div>
@@ -129,12 +152,15 @@
 
 
     var FLIGHT;
+    var LENGTH;
+    var ALLPAGE;
+    var CURRENT_PAGE=1;
     function search() {
         let data={};
         data.arr=$('#search-form select[name="endAir"] ').val()
         data.dpt=$('#search-form select[name="beginAir"] ').val()
         data.date=$('#search-form input[name="startTime"] ').val()
-        data.ex_track='tehui'
+        data.ex_track='youxuan'
         data.level=$('#search-form select[name="level"] ').val()
         console.log(data)
 
@@ -145,12 +171,42 @@
         params.ex_track='tehui'
         params.level="1";
         console.log(params)
+        $('#workRecordForm input[name="dptDate"]').val(data.date)
         $.post('/WORKSYSTEM/abc/getdata.dao',data,(results) =>{
             FLIGHT=results;
-            getFlight(0,10)
+            LENGTH=results.length;
+            getFlight(10,20)
+            return;
+            if (LENGTH/10==0){
+                ALLPAGE=LENGTH/10;
+            } else {
+                ALLPAGE=LENGTH/10 +1;
+            }
+            setPage(ALLPAGE);
+            searchPage(1);
         },'json');
     }
+    function setPage(x) {
 
+        var str="";
+        for (var i=1;i<=x;i++){
+            str +=`
+             <a href="" class="m-page" onclick="searchPage(${i})" name="page${i}">${i}</a>
+            `;
+        }
+        $('#nav-page-div').html(str);
+    }
+
+    function searchPage(x) {
+        var start = parseInt(x-1)*10;
+        var end;
+        if (parseInt(x*10)>LENGTH){
+            end=LENGTH;
+        } else {
+            end=x*10;
+        }
+        getFlight(start,end);
+    }
     function getFlight(start,end){
         var str = "";
         console.log(FLIGHT)
@@ -160,7 +216,11 @@
                varrieName='东方航空公司';
            }
             str +=`
-             <div class="a-workRecord-div" >
+             <div class="a-workRecord-div" onclick="searchFlightPrice(this)">
+                        <input type="hidden" value="1" name="openOrClose">
+                        <input type="hidden" value="${FLIGHT[i].arr}" name="arr">
+                        <input type="hidden" value="${FLIGHT[i].dpt}" name="dpt">
+                        <input type="hidden" value="${FLIGHT[i].actFlightNum}" name="flightNum">
                        <div style="width: 200px">
                            <h4>${varrieName}</h4>
                            <p>${FLIGHT[i].actFlightNum}航班</p>
@@ -182,11 +242,10 @@
                         </div>
                         <div class="sit">
                             <div class="sit-price" style="color: #55ff79" >
-                            经济舱： <h4 style="color: red">${FLIGHT[i].barePrice}</h4>
+                            经济舱： <h4 style="color: red">¥${FLIGHT[i].barePrice}</h4>
                             <p style="color: red">${FLIGHT[i].discount}折</p>
                             </div>
-                            <div><input type="button" class="yuding-button" onclick="searchFlightPrice()" value="预定">
-                            </div>
+
                         </div>
                     </div>
             `;
@@ -194,18 +253,48 @@
         $('#abcFlightDiv').html(str)
     }
 
-    function searchFlightPrice() {
-        let params={};
-        params.arr='CAN'
-        params.dpt='PEK'
-        params.date='2018-12-09'
-        params.flightNum='MU3003'
-        params.ex_track='tehui'
-        params.level="1";
-        console.log(params)
-        $.post('/WORKSYSTEM/abc/searchFlightPrice.dao',params,(results) =>{
-           console.log(results)
-        },'json');
+    function searchFlightPrice(x) {
+        var openOrClose=$(x).find('input[name="openOrClose"]').val();
+        if (openOrClose=='1'){
+            let params={};
+            params.arr=$(x).find('input[name="arr"]').val();
+            params.dpt=$(x).find('input[name="dpt"]').val();
+            params.date=$('#workRecordForm input[name="dptDate"]').val();
+            params.flightNum=$(x).find('input[name="flightNum"]').val();
+            params.ex_track='youxuan'
+            params.level="1";
+            $.post('/WORKSYSTEM/abc/searchFlightPrice.dao',params,(results) =>{
+                console.log(results)
+                var vendor=results.vendors;
+                var str=`
+                    <div class="a-flightPrice-div" >
+                         <table  class="flightPrice-table">`;
+                $.each(vendor,(i,flightPriceVendors) =>{
+                    str +=`
+                    <tr>
+                         <td width="20%"> 去哪儿旗舰店</td>
+                         <td width="15%">${flightPriceVendors.cabinTypeName}</td>
+                         <td width="50%"><a>改退说明</a></td>
+                         <td width="10%" class="price-td">¥${flightPriceVendors.price}</td>
+                         <td width="10%" align="right"><input type="button" value="预定" class="yuding-button"></td>
+                         </tr>
+                     `;
+                });
+                str +=`
+                 </table> </div>
+                `;
+
+                $(x).after(str);
+                $(x).find('input[name="openOrClose"]').val(2)
+            },'json');
+        }else {
+            $(x).next().remove()
+            $(x).find('input[name="openOrClose"]').val(1)
+        }
+
+        return
+
+
     }
 function yuding(){
 

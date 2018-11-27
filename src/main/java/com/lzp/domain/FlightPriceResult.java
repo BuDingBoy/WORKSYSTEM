@@ -8,12 +8,12 @@ public class FlightPriceResult {
     private String msg;
     private String date;
     private String depCode;
-    private String bAirdrome;
+    private String bairdrome;
     private String depAirport;
     private String depTerminal;
     private String btime;
     private String arrCode;
-    private String eAirdrome;
+    private String eairdrome;
     private String arrAirport;
     private String arrTerminal;
     private String etime;
@@ -35,8 +35,8 @@ public class FlightPriceResult {
     private  String actCode;
     private Integer arf;
     private  Integer tof ;
-    private Integer destance;
-    private String  fligtType;
+    private Integer distance;
+    private String  flightType;
     private List<FlightPriceVendors> vendors;
 
     public List<FlightPriceVendors> getVendors() {
@@ -79,12 +79,12 @@ public class FlightPriceResult {
         this.depCode = depCode;
     }
 
-    public String getbAirdrome() {
-        return bAirdrome;
+    public String getBairdrome() {
+        return bairdrome;
     }
 
-    public void setbAirdrome(String bAirdrome) {
-        this.bAirdrome = bAirdrome;
+    public void setBairdrome(String bairdrome) {
+        this.bairdrome = bairdrome;
     }
 
     public String getDepAirport() {
@@ -119,12 +119,12 @@ public class FlightPriceResult {
         this.arrCode = arrCode;
     }
 
-    public String geteAirdrome() {
-        return eAirdrome;
+    public String getEairdrome() {
+        return eairdrome;
     }
 
-    public void seteAirdrome(String eAirdrome) {
-        this.eAirdrome = eAirdrome;
+    public void setEairdrome(String eairdrome) {
+        this.eairdrome = eairdrome;
     }
 
     public String getArrAirport() {
@@ -295,19 +295,19 @@ public class FlightPriceResult {
         this.tof = tof;
     }
 
-    public Integer getDestance() {
-        return destance;
+    public Integer getDistance() {
+        return distance;
     }
 
-    public void setDestance(Integer destance) {
-        this.destance = destance;
+    public void setDistance(Integer distance) {
+        this.distance = distance;
     }
 
-    public String getFligtType() {
-        return fligtType;
+    public String getFlightType() {
+        return flightType;
     }
 
-    public void setFligtType(String fligtType) {
-        this.fligtType = fligtType;
+    public void setFlightType(String flightType) {
+        this.flightType = flightType;
     }
 }
