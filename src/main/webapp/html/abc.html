@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>农行天下</title>
     <link rel="stylesheet" type="text/css" href="../css/workRecord.css"/>
     <link rel="stylesheet" type="text/css" href="../css/abc.css"/>
 
@@ -14,7 +14,7 @@
 <body id="abc-body">
 <header class="commonHeader">
     <div class="login-div">
-        <nav class="top-nav-connect"><a href="WriteWorkRecord.html">订单查询</a></nav>
+        <nav class="top-nav-connect"><a href="#">订单查询</a></nav>
         <img src="../images/monkey1.jpg" id="imgPhoto">
         <span class="loginIDStyle" id="loginNickname">一寸灰</span>
     </div>
@@ -42,8 +42,8 @@
                 <div class="sousuo-div"><p class="title-p">员工职级</p>
                     <select name="level" class="air-select">
                     <option value="1">总经理</option>
-                    <option value="2">处级</option>
-                    <option value="3">普通员工</option>
+                    <option value="1">处级</option>
+                    <option value="2">普通员工</option>
 
                 </select>
                 </div>
@@ -80,9 +80,10 @@
 
                 </div>
                 <input type="hidden" value="dd" name="dptDate">
+                <input type="hidden" value="1" name="level">
                 <div id="abcFlightDiv">
 
-                    <div class="a-workRecord-div" onclick="searchFlightPrice(this)">
+                    <div class="a-workRecord-div" >
                         <input type="hidden" value="1" name="openOrClose">
                        <div>
                            <h4>航空公司</h4>
@@ -172,6 +173,7 @@
         params.level="1";
         console.log(params)
         $('#workRecordForm input[name="dptDate"]').val(data.date)
+        $('#workRecordForm input[name="level"]').val(data.level)
         $.post('/WORKSYSTEM/abc/getdata.dao',data,(results) =>{
             FLIGHT=results;
             LENGTH=results.length;
@@ -250,6 +252,7 @@
                     </div>
             `;
         }
+        $('#abcFlightDiv').empty();
         $('#abcFlightDiv').html(str)
     }
 
@@ -262,7 +265,7 @@
             params.date=$('#workRecordForm input[name="dptDate"]').val();
             params.flightNum=$(x).find('input[name="flightNum"]').val();
             params.ex_track='youxuan'
-            params.level="1";
+            params.level=$('#workRecordForm input[name="level"]').val();
             $.post('/WORKSYSTEM/abc/searchFlightPrice.dao',params,(results) =>{
                 console.log(results)
                 var vendor=results.vendors;
