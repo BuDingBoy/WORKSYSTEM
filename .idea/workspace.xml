@@ -6,7 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d4f4dd9-bf88-4fd8-aebf-beaf5fe2e115" name="Default" comment="" />
+    <list default="true" id="1d4f4dd9-bf88-4fd8-aebf-beaf5fe2e115" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,22 +48,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ABCController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lzp/control/ABCController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1475">
-              <caret line="76" column="37" selection-start-line="76" selection-start-column="37" selection-end-line="76" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="FlightInfo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lzp/domain/FlightInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="925">
+            <state relative-caret-position="950">
               <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -77,7 +67,7 @@
       <file leaf-file-name="FlightPriceVendors.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lzp/domain/FlightPriceVendors.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="875">
+            <state relative-caret-position="925">
               <caret line="37" selection-start-line="37" selection-end-line="37" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -106,11 +96,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="155" column="14" lean-forward="true" selection-start-line="155" selection-start-column="14" selection-end-line="155" selection-end-column="14" />
+            <state relative-caret-position="332">
+              <caret line="157" column="45" selection-start-line="157" selection-start-column="45" selection-end-line="157" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/target/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="50">
+              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -225,7 +224,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/css/workRecord.css" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzp/domain/KeyProduce.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzp/util/Constant.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzp/service/KeyProdeceServiceImpl.java" />
@@ -276,6 +274,7 @@
         <option value="$PROJECT_DIR$/src/main/webapp/css/abc.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/login.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/abc.html" />
+        <option value="$PROJECT_DIR$/target/.gitignore" />
       </list>
     </option>
   </component>
@@ -338,7 +337,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -521,12 +521,16 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="WORKSYSTEM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WORKSYSTEM" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -896,6 +900,7 @@
       <workItem from="1543216401502" duration="8299000" />
       <workItem from="1543230566852" duration="10080000" />
       <workItem from="1543279245915" duration="8368000" />
+      <workItem from="1543392474510" duration="117000" />
     </task>
     <task id="LOCAL-00001" summary="commit files all">
       <created>1538991118938</created>
@@ -1003,7 +1008,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="358687000" />
+    <option name="totallyTimeSpent" value="358804000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1037,52 +1042,24 @@
       <window_info id="Image Layers" order="5" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32976446" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
+      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.4984375" weight="0.251606" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.14453961" />
-      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.4984375" weight="0.251606" />
       <window_info anchor="bottom" id="Spring" order="10" weight="0.32928178" />
-      <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.49946696" visible="true" weight="0.15371622" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.83820224" visible="true" weight="0.22087745" />
-      <window_info anchor="right" id="Bean Validation" order="8" weight="0.4739663" />
-      <window_info id="Web" order="3" sideWeight="0.05082873" side_tool="true" weight="0.14674735" />
-      <window_info anchor="right" id="Theme Preview" order="2" />
-      <window_info id="Favorites" order="4" sideWeight="0.16179775" side_tool="true" weight="0.2375189" />
-      <window_info anchor="bottom" id="Spring" order="10" weight="0.32928178" />
-      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.4984375" weight="0.251606" />
-      <window_info anchor="right" id="Database" order="3" weight="0.102118" />
       <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.49946696" weight="0.11777302" />
-      <window_info id="UI Designer" order="1" />
-      <window_info anchor="right" id="JSF" order="7" weight="0.32995737" />
       <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.83820224" visible="true" weight="0.20499243" />
-      <window_info anchor="right" id="Coverage" order="13" side_tool="true" weight="0.32995737" />
-      <window_info anchor="right" id="Palette&#9;" order="1" />
-      <window_info anchor="right" id="Palette" order="5" />
-      <window_info anchor="right" id="Structure" order="12" sideWeight="0.123809524" side_tool="true" weight="0.25692964" />
-      <window_info anchor="bottom" id="TODO" order="15" weight="0.3293919" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="11" weight="0.25" />
-      <window_info anchor="right" id="Maven Projects" order="4" weight="0.32942432" />
-      <window_info anchor="right" id="CDI" order="6" weight="0.32995737" />
-      <window_info anchor="bottom" id="Database Console" order="0" weight="0.17344753" />
-      <window_info anchor="bottom" id="Message" order="7" />
-      <window_info anchor="right" id="Ant Build" order="10" weight="0.25" />
-      <window_info anchor="right" id="Capture Analysis" order="0" />
-      <window_info id="Favorites" order="4" sideWeight="0.16179775" side_tool="true" weight="0.2375189" />
-      <window_info anchor="right" id="Theme Preview" order="2" />
-      <window_info id="Image Layers" order="5" />
-      <window_info anchor="bottom" id="Find" order="8" visible="true" weight="0.3293919" />
-      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.5010661" side_tool="true" weight="0.08672377" />
-      <window_info anchor="bottom" id="Cvs" order="13" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="14" weight="0.4" />
-      <window_info id="Designer" order="0" />
-      <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32976446" />
-      <window_info id="Web" order="3" sideWeight="0.05082873" side_tool="true" weight="0.14674735" />
       <window_info anchor="right" id="Bean Validation" order="8" weight="0.4739663" />
-      <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="6" weight="0.14453961" />
-      <window_info anchor="bottom" id="Application Servers" order="1" weight="0.3277027" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="9" type="SLIDING" weight="0.4" />
-      <window_info id="Capture Tool" order="2" />
+      <window_info id="Web" order="3" sideWeight="0.05082873" side_tool="true" weight="0.14674735" />
+      <window_info anchor="right" id="Theme Preview" order="2" />
+      <window_info id="Favorites" order="4" sideWeight="0.16179775" side_tool="true" weight="0.2375189" />
+      <window_info anchor="right" id="Coverage" order="13" side_tool="true" weight="0.32995737" />
+      <window_info anchor="bottom" id="Inspection" order="14" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="13" weight="0.25" />
+      <window_info anchor="bottom" id="Database Console" order="0" weight="0.17344753" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="11" weight="0.25" />
       <window_info anchor="bottom" id="Messages" order="2" weight="0.08614865" />
-      <window_info anchor="bottom" id="Debug" order="12" sideWeight="0.4989339" weight="0.13682432" />
+      <window_info anchor="bottom" id="Find" order="8" visible="true" weight="0.3293919" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="9" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="7" />
     </layout>
     <layout-to-restore>
       <window_info anchor="bottom" id="Application Servers" order="1" weight="0.3277027" />
@@ -1262,13 +1239,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzp/domain/WorkRecordDomain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lzp/service/StaffService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -1681,7 +1651,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lzp/control/ABCController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1475">
+        <state relative-caret-position="1900">
           <caret line="76" column="37" selection-start-line="76" selection-start-column="37" selection-end-line="76" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1691,7 +1661,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lzp/domain/FlightInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="925">
+        <state relative-caret-position="950">
           <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1705,7 +1675,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lzp/domain/FlightPriceVendors.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="875">
+        <state relative-caret-position="925">
           <caret line="37" selection-start-line="37" selection-end-line="37" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1768,8 +1738,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="155" column="14" lean-forward="true" selection-start-line="155" selection-start-column="14" selection-end-line="155" selection-end-column="14" />
+        <state relative-caret-position="332">
+          <caret line="157" column="45" selection-start-line="157" selection-start-column="45" selection-end-line="157" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
         </state>
       </provider>
     </entry>
