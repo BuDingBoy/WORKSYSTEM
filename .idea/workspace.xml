@@ -8,9 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1d4f4dd9-bf88-4fd8-aebf-beaf5fe2e115" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/WORKSYSTEM/WORKSYSTEM.war" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WORKSYSTEM/WORKSYSTEM.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/WORKSYSTEM_war_exploded/WORKSYSTEM.war" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WORKSYSTEM_war_exploded/WORKSYSTEM.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/abc.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/abc.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -114,8 +111,8 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="300">
+              <caret line="12" column="51" lean-forward="true" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -325,10 +322,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1928" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1096" />
+    <option name="x" value="463" />
+    <option name="y" value="150" />
+    <option name="width" value="683" />
+    <option name="height" value="738" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -904,7 +901,7 @@
       <workItem from="1543193084514" duration="11095000" />
       <workItem from="1543216401502" duration="8299000" />
       <workItem from="1543230566852" duration="10080000" />
-      <workItem from="1543279245915" duration="6982000" />
+      <workItem from="1543279245915" duration="8368000" />
     </task>
     <task id="LOCAL-00001" summary="commit files all">
       <created>1538991118938</created>
@@ -969,7 +966,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543279631591</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="完成了后台机票价格，舱位修改">
+      <created>1543305762606</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1543305762606</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1005,7 +1009,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="356987000" />
+    <option name="totallyTimeSpent" value="358373000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1017,7 +1021,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.5010661" side_tool="true" weight="0.08672377" />
@@ -1032,7 +1036,7 @@
       <window_info anchor="right" id="JSF" order="7" weight="0.32995737" />
       <window_info anchor="right" id="Ant Build" order="10" weight="0.25" />
       <window_info id="UI Designer" order="1" />
-      <window_info anchor="bottom" id="Debug" order="12" sideWeight="0.4989339" visible="true" weight="0.08672377" />
+      <window_info anchor="bottom" id="Debug" order="12" sideWeight="0.4989339" weight="0.13682432" />
       <window_info anchor="bottom" id="TODO" order="15" weight="0.3293919" />
       <window_info anchor="bottom" id="Messages" order="2" weight="0.08614865" />
       <window_info anchor="right" id="Palette&#9;" order="1" />
@@ -1043,7 +1047,7 @@
       <window_info anchor="bottom" id="Run" order="9" sideWeight="0.4984375" weight="0.251606" />
       <window_info anchor="bottom" id="Spring" order="10" weight="0.32928178" />
       <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.49946696" weight="0.11777302" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.83820224" visible="true" weight="0.1444563" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.83820224" visible="true" weight="0.20499243" />
       <window_info anchor="right" id="Bean Validation" order="8" weight="0.4739663" />
       <window_info id="Web" order="3" sideWeight="0.05082873" side_tool="true" weight="0.14674735" />
       <window_info anchor="right" id="Theme Preview" order="2" />
@@ -1145,7 +1149,8 @@
     <MESSAGE value="完成了大部分功能，前台已经能够正常展示" />
     <MESSAGE value="后台添加了飞机票价格查询的功能" />
     <MESSAGE value="完成了后台机票价格，舱位的查询" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成了后台机票价格，舱位的查询" />
+    <MESSAGE value="完成了后台机票价格，舱位修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成了后台机票价格，舱位修改" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1740,8 +1745,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="300">
+          <caret line="12" column="51" lean-forward="true" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
         </state>
       </provider>
     </entry>
