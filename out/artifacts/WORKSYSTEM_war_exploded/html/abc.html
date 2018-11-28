@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>农行天下</title>
+    <link rel="stylesheet" type="text/css" href="../css/workRecord.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/abc.css"/>
+
+    <link href="../css/bootstrap.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.js"></script>
+    <script type="text/javascript" src="../js/abcCommon.js"></script>
+</head>
+<body id="abc-body">
+<header class="commonHeader">
+    <div class="login-div">
+        <nav class="top-nav-connect"><a href="#">订单查询</a></nav>
+        <img src="../images/monkey1.jpg" id="imgPhoto">
+        <span class="loginIDStyle" id="loginNickname">一寸灰</span>
+    </div>
+</header>
+<main class="mainClass">
+    <aside class="workAside">
+        <div class="nav-div">
+            <form id="search-form" >
+                <div class="sousuo-div"><p class="title-p">始    发    站</p>
+                    <select name="beginAir" class="air-select"  >
+                        <option value="PEK">北京</option>
+                        <option value="SHA">上海</option>
+                        <option value="CAN">广州</option>
+                        <option value="CTU" selected="selected">成都</option>
+                    </select></div>
+                <div class="sousuo-div"><p class="title-p">终   点   站</p>
+                    <select  name="endAir"  class="air-select">
+                        <option value="PEK">北京</option>
+                        <option value="SHA">上海</option>
+                        <option value="CAN">广州</option>
+                        <option value="CTU">成都</option>
+                    </select>
+                </div>
+                <div class="sousuo-div"> <p class="title-p">起飞时间</p><input type="date"  name="startTime" class="air-select" id="startTime" value="2018-12-11"> </div>
+                <div class="sousuo-div"><p class="title-p">员工职级</p>
+                    <select name="level" class="air-select">
+                    <option value="1">总经理</option>
+                    <option value="1">处级</option>
+                    <option value="2">普通员工</option>
+
+                </select>
+                </div>
+                <div class="sousuo-div"> <input type="button" value="搜索" onclick="search()" class="sousuo-button"></div>
+            </form>
+
+        </div>
+        <div class="contact-me">
+            <div>
+                <div><img src="../images/2D.gif" class="QR-img"></div>
+            </div>
+        </div>
+    </aside>
+    <div class="workContent">
+        <div>
+            <form id="workRecordForm">
+
+                <div class="catalog"  style="display: none">
+                    <select name="beginAir" style="width: 150px" >
+                        <option value="PEK">北京</option>
+                        <option value="SHA">上海</option>
+                        <option value="CAN">广州</option>
+                    </select>
+                    <span>到</span>
+                    <select name="endAir" style="width: 150px" >
+                        <option value="PEK">北京</option>
+                        <option value="SHA">上海</option>
+                        <option value="CAN">广州</option>
+                    </select>
+
+                    <input type="date" placeholder="起飞时间" name="startTime" >
+
+                    <input type="button" value="搜索" >
+
+                </div>
+                <input type="hidden" value="dd" name="dptDate">
+                <input type="hidden" value="1" name="level">
+                <div id="abcFlightDiv">
+
+                    <div class="a-workRecord-div" >
+                        <input type="hidden" value="1" name="openOrClose">
+                       <div>
+                           <h4>航空公司</h4>
+                           <p>MUDD34航班</p>
+
+                       </div>
+                        <div class="travel-div">
+                            <div >
+                                <h4>07:23</h4>
+                                <p>浦东机场</p>
+                            </div>
+                            <div  class="time-div">
+                                <p class="tiem-p">3小时35分</p>
+                                <hr class="timeHr">
+                            </div>
+                            <div>
+                                <h4 >10:40</h4>
+                                <p>双流机场</p>
+                            </div>
+                        </div>
+                        <div class="sit">
+                            <div class="sit-price" style="color: #55ff79" >
+                                <h4 style="color: red">¥666</h4>
+                                <p style="color: red">4.5折</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="a-flightPrice-div" style="display: none" >
+                        <table  class="flightPrice-table">
+                            <tr>
+                                <td width="20%"> 去哪儿旗舰店</td>
+                                <td width="15%">经济舱</td>
+                                <td width="50%">改退免费</td>
+                                <td width="10%">¥666</td>
+                                <td width="10%" align="right"><input type="button" value="预定" class="yuding-button"></td>
+                            </tr>
+                            <tr>
+                                <td width="20%"> 去哪儿旗舰店</td>
+                                <td width="15%">经济舱</td>
+                                <td width="50%">改退免费</td>
+                                <td width="10%">¥666</td>
+                                <td width="10%" align="right"><input type="button" value="预定" class="yuding-button"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="nav-page-div" id="nav-page-div">
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</main>
+<footer>
+</footer>
+
+</body>
+<script type="text/javascript">
+
+    //设置连接的点击样式
+    $(() => {
+    });
+
+
+    var FLIGHT;
+    var LENGTH;
+    var ALLPAGE;
+    var CURRENT_PAGE=1;
+    function search() {
+        let data={};
+        data.arr=$('#search-form select[name="endAir"] ').val()
+        data.dpt=$('#search-form select[name="beginAir"] ').val()
+        data.date=$('#search-form input[name="startTime"] ').val()
+        data.ex_track='youxuan'
+        data.level=$('#search-form select[name="level"] ').val()
+        console.log(data)
+
+        let params={};
+        params.arr='PVG'
+        params.dpt='PEK'
+        params.date='2018-12-09'
+        params.ex_track='tehui'
+        params.level="1";
+        console.log(params)
+        $('#workRecordForm input[name="dptDate"]').val(data.date)
+        $('#workRecordForm input[name="level"]').val(data.level)
+        $.post('/WORKSYSTEM/abc/getdata.dao',data,(results) =>{
+            FLIGHT=results;
+            LENGTH=results.length;
+            getFlight(10,20)
+            return;
+            if (LENGTH/10==0){
+                ALLPAGE=LENGTH/10;
+            } else {
+                ALLPAGE=LENGTH/10 +1;
+            }
+            setPage(ALLPAGE);
+            searchPage(1);
+        },'json');
+    }
+    function setPage(x) {
+
+        var str="";
+        for (var i=1;i<=x;i++){
+            str +=`
+             <a href="" class="m-page" onclick="searchPage(${i})" name="page${i}">${i}</a>
+            `;
+        }
+        $('#nav-page-div').html(str);
+    }
+
+    function searchPage(x) {
+        var start = parseInt(x-1)*10;
+        var end;
+        if (parseInt(x*10)>LENGTH){
+            end=LENGTH;
+        } else {
+            end=x*10;
+        }
+        getFlight(start,end);
+    }
+    function getFlight(start,end){
+        var str = "";
+        console.log(FLIGHT)
+        for (let i=start;i<end;i++) {
+            var varrieName=FLIGHT[i].carrierName;
+           if (varrieName==null ||varrieName==''){
+               varrieName='东方航空公司';
+           }
+            str +=`
+             <div class="a-workRecord-div" onclick="searchFlightPrice(this)">
+                        <input type="hidden" value="1" name="openOrClose">
+                        <input type="hidden" value="${FLIGHT[i].arr}" name="arr">
+                        <input type="hidden" value="${FLIGHT[i].dpt}" name="dpt">
+                        <input type="hidden" value="${FLIGHT[i].actFlightNum}" name="flightNum">
+                       <div style="width: 200px">
+                           <h4>${varrieName}</h4>
+                           <p>${FLIGHT[i].actFlightNum}航班</p>
+
+                       </div>
+                        <div class="travel-div">
+                            <div >
+                                <h4>${FLIGHT[i].dptTime}</h4>
+                                <p>${FLIGHT[i].dptAirport}${FLIGHT[i].dptTerminal}</p>
+                            </div>
+                            <div  class="time-div">
+                                <p class="tiem-p">${FLIGHT[i].flightTimes}</p>
+                                <hr class="timeHr">
+                            </div>
+                            <div>
+                                <h4 >${FLIGHT[i].arrTime}</h4>
+                                <p>${FLIGHT[i].arrAirport}${FLIGHT[i].arrTerminal}</p>
+                            </div>
+                        </div>
+                        <div class="sit">
+                            <div class="sit-price" style="color: #55ff79" >
+                            经济舱： <h4 style="color: red">¥${FLIGHT[i].barePrice}</h4>
+                            <p style="color: red">${FLIGHT[i].discount}折</p>
+                            </div>
+
+                        </div>
+                    </div>
+            `;
+        }
+        $('#abcFlightDiv').empty();
+        $('#abcFlightDiv').html(str)
+    }
+
+    function searchFlightPrice(x) {
+        var openOrClose=$(x).find('input[name="openOrClose"]').val();
+        if (openOrClose=='1'){
+            let params={};
+            params.arr=$(x).find('input[name="arr"]').val();
+            params.dpt=$(x).find('input[name="dpt"]').val();
+            params.date=$('#workRecordForm input[name="dptDate"]').val();
+            params.flightNum=$(x).find('input[name="flightNum"]').val();
+            params.ex_track='youxuan'
+            params.level=$('#workRecordForm input[name="level"]').val();
+            $.post('/WORKSYSTEM/abc/searchFlightPrice.dao',params,(results) =>{
+                console.log(results)
+                var vendor=results.vendors;
+                var str=`
+                    <div class="a-flightPrice-div" >
+                         <table  class="flightPrice-table">`;
+                $.each(vendor,(i,flightPriceVendors) =>{
+                    str +=`
+                    <tr>
+                         <td width="20%"> 去哪儿旗舰店</td>
+                         <td width="15%">${flightPriceVendors.cabinTypeName}</td>
+                         <td width="50%"><a>改退说明</a></td>
+                         <td width="10%" class="price-td">¥${flightPriceVendors.price}</td>
+                         <td width="10%" align="right"><input type="button" value="预定" class="yuding-button"></td>
+                         </tr>
+                     `;
+                });
+                str +=`
+                 </table> </div>
+                `;
+
+                $(x).after(str);
+                $(x).find('input[name="openOrClose"]').val(2)
+            },'json');
+        }else {
+            $(x).next().remove()
+            $(x).find('input[name="openOrClose"]').val(1)
+        }
+
+        return
+
+
+    }
+function yuding(){
+
+}
+    $('#allChecked').change(function () {
+        $('#showWorkRecord input[type="checkbox"][name="workRecordCheck"]').prop('checked', $(this).is(':checked') ? true : false);
+    });
+
+    function buttonOperation() {
+        var operationType = $('#modalWorkRecord input[name="operationType"] ').val();
+        // alert(operationType);
+        if (operationType == '1') {
+            addWorkRecord()
+        } else if (operationType == '2') {
+            modifyWorkRecord();
+        }
+    }
+
+    function add() {
+        $('#modalWorkRecord input[name="operationType"]').val("1");
+        $('#modalWorkRecord textarea[name="content"]').val('');
+        $('#modalWorkRecord textarea[name="noCompleted"]').val('');
+        $('#modalWorkRecord textarea[name="title"]').val('');
+        $('#myModal').modal('show');
+    }
+
+    function addWorkRecord() {
+
+        var data = {};
+        data.content = $('#modalWorkRecord textarea[name="content"]').val();
+        data.noCompleted = $('#modalWorkRecord textarea[name="noCompleted"]').val();
+        data.title = $('#modalWorkRecord textarea[name="title"]').val();
+        // console.log(data);
+        // alert(data.title);
+        $.post("../workRecord/insertWorkRecord.dao", data, function (results) {
+            searchWorkRecord()
+
+        }, "text");
+    }
+
+    function searchWorkRecord() {
+        var data = {};
+        $.post("../workRecord/findWorkRecordByWhere.dao", data, (results) => {
+            var str = "";
+            $.each(results, (i, workRecordVO) => {
+                var comp = workRecordVO.content;
+                if (comp.length > 150) {
+                    comp = comp.slice(0, 150) + '...';
+                }
+                str += `
+            <div class="a-workRecord-div" onmouseout="overShow(this)" onmouseover="openLink(this)">
+                <input type="hidden" name="recordID" value="${workRecordVO.recordID}">
+                <input type="hidden" name="staffID" value="${workRecordVO.staffID}">
+                <h4 class="a-workRecord-title-h" ><a onclick="lookWorkRecord(this)">${workRecordVO.title}</a></h4>
+                <p class="a-workRecord-context-p">${comp}</p>
+                <div class="a-workRecord-dis">
+                    <span>${workRecordVO.recordDate}</span>
+                    <div>
+                        <nav >
+                            <a href="WriteWorkRecord.html" onclick="modifyWorkRecord(this)">编辑</a>|
+                            <input type="button" value="删除" onclick="del(this)">
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            `;
+
+            });
+            // $("#abcFlightDiv").html(str);
+        }, "json");
+    }
+
+    function del(butt) {
+        let data = {};
+        data.recordID = $(butt).parents('.a-workRecord-div').children('input[name="recordID"]').val();
+        $.post("../workRecord/deleteWorkRecordByKey.dao", data, (results) => {
+            if (results == '1') {
+                searchWorkRecord();
+            } else {
+                alert('删除失败！');
+            }
+        }, 'text');
+    }
+
+    /**
+     * 鼠标移动到上面时显示右下角操作连接
+     */
+    function openLink(x) {
+        // console.log( $(x).find("nav").text())
+        $(x).find("nav").css("display", "inline");
+    }
+
+    function overShow(x) {
+        $(x).find("nav").css("display", "none");
+    }
+
+    function lookWorkRecord(x) {
+        var recordID = $(x).parents('.a-workRecord-div').children('input[name="recordID"]').val();
+        $(x).prop('href', 'ReadWorkRecord.html?recordID=' + recordID);
+    }
+
+    /**
+     * 修改工作记录
+     * @param x
+     */
+    function modifyWorkRecord(x) {
+        var recordID = $(x).parents('.a-workRecord-div').children('input[name="recordID"]').val();
+        $(x).prop('href', 'WriteWorkRecord.html?recordID=' + recordID);
+
+    }
+
+    function deleteWorkRecord() {
+        let $compnent = $('#showWorkRecord input[name="workRecordCheck"]:checked').parent('td').parent('tr');
+        var recordID = '';
+        for (var i = 0; i < $compnent.length; i++) {
+            if (i == 0) {
+                recordID = $compnent.eq(i).children('td[name="recordID"]').text();
+            } else {
+                recordID += ',' + $compnent.eq(i).children('td[name="recordID"]').text();
+                console.log(recordID);
+            }
+        }
+        alert(recordID);
+        let data = {};
+        data.recordID = recordID;
+        $.post("../workRecord/deleteWorkRecordByKey.dao", data, (results) => {
+            if (results == '1') {
+                searchWorkRecord();
+            } else {
+                alert('删除失败！');
+            }
+        }, 'text');
+    }
+</script>
+</html>

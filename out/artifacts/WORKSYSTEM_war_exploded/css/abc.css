@@ -1,0 +1,362 @@
+.mainClass{
+    display: flex;
+    height:80rem;
+    margin-left: 5px;
+    margin-right: 5px;
+    justify-content: center;
+}
+.workAside{
+    width: 25%;
+    margin-right: 5px;
+    display: flex;
+    flex-direction: column;
+}
+body > footer{
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body > footer p{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: 微软雅黑;
+    color: black;
+}
+body a{
+    color: black;
+    margin-right: 10px;
+}
+body  a:link{
+    color: black;
+    text-decoration: none;
+}
+body a:hover{
+    color: red;
+}
+
+.commonHeader{
+    display: flex;
+    justify-content: flex-start;
+}
+.catalog{
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    align-items: center;
+    height:60px;
+}
+
+.logo-img{
+    height: 50px;
+    width: 135px;
+    margin-left: 50px;
+}
+
+
+tr:nth-child(2n){
+
+}
+
+.modal-dialog{
+    width: 200pt;
+}
+
+#imgPhoto{
+    right: 10px;
+    border-radius: 25px;
+    border: none;
+    width: 40px;
+    height: 40px;
+}
+.commonHeader div{
+    width: 50%;
+
+}
+.login-div{
+    order: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.loginIDStyle{
+    margin-right: 20px;
+    margin-left: 20px;
+    font-family: 华文行楷 ;
+    font-weight: bolder;
+    font-size: large;
+    color: black;
+}
+.top-nav-connect{
+    margin-right: 20px;
+    margin-left: 20px;
+    font-family: 微软雅黑 ;
+    font-size: medium;
+    color: black;
+}
+body{
+    background: url("../images/abcLogo.jpg") repeat fixed;
+}
+
+.contact-me{
+    display: flex;
+    width: 100%;
+    height: 20%;
+    background: white;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+
+}
+.QR-img{
+    width: 100px;
+    height: 100px;
+}
+.nav-div{
+    height: 30%;
+    width: 100%;
+    background: white;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+}
+.workContent{
+    width: 70%;
+    margin-right: 5px;
+}
+.work-form-div{
+    background: white;
+    padding: 10px;
+    min-height: 49rem;
+}
+.a-workRecord-div{
+    margin-top: 2px;
+    background: white;
+    padding: 12px 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+    border-top:1px solid #cce5ff;
+    cursor: pointer;
+}
+.a-workRecord-title-h{
+    font-size: 20px;
+    height: 20%;
+    margin: 0px;
+    font-family: 黑体;
+    font-weight: bolder;
+    color: #3d3d3d;
+    display: inline-block;
+    cursor:pointer;
+
+}
+.a-workRecord-context-p{
+    word-wrap: break-word;
+    font-size: 15px;
+    height: 60%;
+    margin: 0px;
+    /*white-space: pre-line;*/
+    overflow: hidden;
+    line-height: 1.5;
+    color: darkgray;
+}
+
+.a-workRecord-dis{
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+.a-workRecord-dis nav{
+    display: none;
+}
+
+
+.read-workRecord-title{
+    font-size: 30px;
+    height: 20%;
+    margin-bottom: 10px;
+    font-family: 黑体;
+    font-weight: bolder;
+    color: #3d3d3d;
+    display: inline-block;
+}
+.read-workRecord-context{
+    word-wrap: break-word;
+    font-size: 16px;
+    height: 60%;
+    margin: 0px;
+    white-space: pre-line;
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+.read-workRecord-dis{
+    height: 10%;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+.read-workRecord{
+    margin: 10px;
+}
+
+.hr-style{
+}
+.travel-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+
+}
+
+#abcFlightDiv h4{
+    font-size: 20px;
+}
+
+#abcFlightDiv p{
+    font-size: 10px;
+}
+.timeHr{
+    height:1px;border:none;border-top:1px dashed #0066CC;
+    width: 120px;
+    text-align: center;
+}
+.tiem-p{
+    margin: 0;
+    width: 120px;
+    text-align: center;
+
+}
+
+.travel-div div{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.travel-div h4{
+}
+#search-form{
+    margin-top: 30px;
+    background: #99fcff;
+    padding: 10px;
+    width: 100%;
+    height: 300px;
+    font-size: 15px;
+    font-family: 华文宋体;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+#search-form div{
+    margin-top: 10px;
+}
+.title-p{
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.air-select{
+    width: 70%;
+    height: 35px;
+}
+
+.sit-price{
+    font-size: 15px;
+    width: 140px;
+    display: flex;
+    align-items: center;
+}
+.yuding-button{
+    border: 0;
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    background: #ff9705;
+    color: #fff;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;;
+
+}
+
+.sit{
+    display: flex;
+}
+
+#abc-body{
+    background: #f3f3f3;
+}
+.a-flightPrice-div{
+    margin-top: 2px;
+    background: white;
+    padding: 0px 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+    border-top:1px solid #cce5ff;
+    box-shadow:0px 0px  5px 5px #cce5ff;
+}
+
+.flightPrice-table{
+    border: 0;
+    margin: 0;
+    width: 100%;
+}
+.flightPrice-table tr{
+    height:40px;
+    border-top:1px solid #cce5ff;
+}
+
+.price-td{
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.sousuo-button{
+    border: 0;
+    width: 90%;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    background: #ff9705;
+    color: #fff;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 18px;
+    font-family: 华文宋体;
+    font-weight: bold;
+    cursor: pointer;;
+}
+.sousuo-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.m-page{
+    border-radius: 50%;
+    border: solid 1px #28aebf;
+    margin: 0 5px;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+}
+.nav-page-div{
+    background: white;
+    display: flex;
+    justify-content: center;
+}
